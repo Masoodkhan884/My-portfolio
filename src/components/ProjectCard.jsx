@@ -1,14 +1,17 @@
 import React from 'react';
 import './ProjectCard.css';
 
-const ProjectCard = ({ title, description, tags, githubLink, demoLink, imagePlaceholder }) => {
+const ProjectCard = ({ title, description, tags, githubLink, demoLink, imagePlaceholder, image }) => {
   return (
     <div className="project-card glass-panel animate-fade-in">
       <div className="project-image-container">
-        {/* Placeholder for project image */}
-        <div className="project-image-placeholder">
-          <span>{imagePlaceholder || 'Project Image'}</span>
-        </div>
+        {image ? (
+          <img src={image} alt={title} className="project-image" />
+        ) : (
+          <div className="project-image-placeholder">
+            <span>{imagePlaceholder || 'Project Image'}</span>
+          </div>
+        )}
         <div className="project-overlay">
           <div className="project-links">
             {githubLink && (
